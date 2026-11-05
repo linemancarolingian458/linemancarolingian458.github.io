@@ -221,3 +221,77 @@ nav a:hover {
     80% { clip: rect(90px, 9999px, 25px, 0); }
     100% { clip: rect(33px, 9999px, 61px, 0); }
 }
+
+/* --- Стили для контента статей (Wgel и будущих) --- */
+
+.post-content {
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+.post-content h2 {
+    color: var(--text-color);
+    margin-top: 40px;
+    margin-bottom: 20px;
+    border-left: 4px solid var(--text-color);
+    padding-left: 15px;
+    font-size: 1.8rem;
+}
+
+.post-content h3 {
+    color: #fff;
+    margin-top: 30px;
+    font-size: 1.4rem;
+}
+
+.post-content p {
+    margin-bottom: 20px;
+}
+
+/* Стили для инлайн-кода (внутри текста) */
+.post-content code {
+    background: #111;
+    padding: 3px 8px;
+    border-radius: 4px;
+    color: var(--accent-color);
+    font-family: 'Fira Code', monospace;
+    font-size: 0.95rem;
+    border: 1px solid #222;
+}
+
+/* Стили для блоков кода (как в терминале) */
+.post-content pre {
+    background: #050505;
+    padding: 20px;
+    overflow-x: auto;
+    border: 1px solid #333;
+    border-left: 4px solid var(--text-color);
+    margin-bottom: 25px;
+    border-radius: 0 5px 5px 0;
+    box-shadow: 0 0 10px rgba(0, 255, 204, 0.05);
+}
+
+.post-content pre code {
+    background: transparent;
+    color: #d4d4d4;
+    padding: 0;
+    border: none;
+    font-size: 1rem;
+}
+
+/* Стили для картинок */
+.post-content img {
+    max-width: 100%;
+    height: auto;
+    border: 2px solid #222;
+    border-radius: 8px;
+    margin: 30px 0;
+    display: block;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+    transition: 0.3s;
+}
+
+.post-content img:hover {
+    border-color: var(--text-color);
+    box-shadow: 0 0 20px rgba(0, 255, 204, 0.2);
+}
