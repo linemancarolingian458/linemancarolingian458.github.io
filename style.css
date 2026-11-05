@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0a0a0a;
+    color: #00ffcc; /* Неоновый бирюзовый */
+    font-family: 'Fira Code', monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    text-shadow: 0 0 5px rgba(0, 255, 204, 0.5);
+}
+
+.terminal {
+    width: 80%;
+    max-width: 900px;
+    background-color: #111;
+    border: 1px solid #333;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 255, 204, 0.2);
+    overflow: hidden;
+}
+
+.terminal-header {
+    background-color: #1a1a1a;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #333;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.red { background-color: #ff5f56; }
+.yellow { background-color: #ffbd2e; }
+.green { background-color: #27c93f; }
+
+.title {
+    margin-left: auto;
+    color: #888;
+    font-size: 0.9em;
+}
+
+.terminal-body {
+    padding: 20px;
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+.line { margin-bottom: 10px; font-weight: bold; }
+.output { margin-bottom: 20px; color: #eee; text-shadow: none; }
+.file { color: #00ffcc; text-decoration: none; border-bottom: 1px dashed #00ffcc; }
+.file:hover { color: #fff; background-color: #00ffcc; }
+
+a { color: #fff; text-decoration: underline; }
+a:hover { color: #00ffcc; }
+
+/* Мигающий курсор */
+.cursor {
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
