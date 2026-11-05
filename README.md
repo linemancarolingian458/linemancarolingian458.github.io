@@ -1,2 +1,2 @@
 # drang3.github.io
-My cybersecurity Blog by Dr@ng3
+My cybersecurity Blog
