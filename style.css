@@ -295,3 +295,20 @@ nav a:hover {
     border-color: var(--text-color);
     box-shadow: 0 0 20px rgba(0, 255, 204, 0.2);
 }
+
+/* Эффект замазанного флага (пиксели) */
+.redacted {
+    background-color: #222;
+    color: transparent;
+    user-select: none;
+    padding: 0 5px;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: 0.3s;
+    position: relative;
+}
+.redacted:hover {
+    background-color: transparent;
+    color: var(--text-color);
+    text-shadow: 0 0 5px var(--text-color);
+}
