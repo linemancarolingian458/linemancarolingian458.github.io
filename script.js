@@ -4,31 +4,12 @@ const typewriterElement = document.getElementById('typewriter');
 let i = 0;
 
 function typeWriter() {
-    if (i < text.length) {
+    if (typewriterElement && i < text.length) {
         typewriterElement.innerHTML += text.charAt(i);
         i++;
-        setTimeout(typeWriter, 50); // Скорость печати
+        setTimeout(typeWriter, 50);
     }
 }
-
-// Навигация (SPA)
-const links = document.querySelectorAll('.nav-link');
-const sections = document.querySelectorAll('main, section');
-
-links.forEach(link => {
-    link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const targetId = link.getAttribute('href').substring(1);
-        
-        sections.forEach(sec => {
-            if (sec.id === targetId || (targetId === 'home' && sec.id === 'home')) {
-                sec.classList.remove('hidden');
-            } else {
-                sec.classList.add('hidden');
-            }
-        });
-    });
-});
 
 // Матрица на фоне
 const canvas = document.getElementById('matrix');
