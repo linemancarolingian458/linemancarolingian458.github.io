@@ -137,3 +137,49 @@ nav a:hover {
     background: var(--text-color);
     color: #000;
 }
+
+/* Glitch Effect */
+.glitch {
+    position: relative;
+    color: #fff;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+.glitch::before, .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-color);
+}
+.glitch::before {
+    left: 2px;
+    text-shadow: -2px 0 var(--accent-color);
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+.glitch::after {
+    left: -2px;
+    text-shadow: -2px 0 var(--text-color);
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim2 5s infinite linear alternate-reverse;
+}
+@keyframes glitch-anim {
+    0% { clip: rect(28px, 9999px, 83px, 0); }
+    20% { clip: rect(66px, 9999px, 39px, 0); }
+    40% { clip: rect(4px, 9999px, 63px, 0); }
+    60% { clip: rect(75px, 9999px, 22px, 0); }
+    80% { clip: rect(12px, 9999px, 98px, 0); }
+    100% { clip: rect(49px, 9999px, 45px, 0); }
+}
+@keyframes glitch-anim2 {
+    0% { clip: rect(56px, 9999px, 48px, 0); }
+    20% { clip: rect(20px, 9999px, 92px, 0); }
+    40% { clip: rect(70px, 9999px, 34px, 0); }
+    60% { clip: rect(5px, 9999px, 72px, 0); }
+    80% { clip: rect(90px, 9999px, 25px, 0); }
+    100% { clip: rect(33px, 9999px, 61px, 0); }
+}
