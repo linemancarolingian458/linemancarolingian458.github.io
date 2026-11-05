@@ -161,3 +161,93 @@ censored::before {
     background-position: 0 0, 2px 2px;
     opacity: 0.8;
 }
+
+/* --- АДАПТИВ ДЛЯ СМАРТФОНОВ --- */
+@media screen and (max-width: 768px) {
+    /* Уменьшаем отступы контейнера */
+    .container {
+        padding: 10px;
+    }
+
+    /* Шапка: логотип сверху, меню снизу */
+    header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    nav a {
+        margin-left: 0;
+        padding: 5px 10px;
+        background: rgba(0, 255, 204, 0.1);
+        border: 1px solid rgba(0, 255, 204, 0.3);
+        border-radius: 4px;
+    }
+
+    /* Терминал: уменьшаем шрифт и отступы */
+    .term-body {
+        font-size: 0.9rem;
+        padding: 15px;
+    }
+
+    /* About: аватарка сверху, текст снизу */
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .avatar {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 15px;
+    }
+
+    .socials {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+
+    /* Статьи: уменьшаем заголовки и отступы */
+    .post-container {
+        padding: 20px;
+        margin-top: 15px;
+    }
+
+    .post-title {
+        font-size: 1.8rem;
+    }
+
+    .post-content h2 {
+        font-size: 1.4rem;
+    }
+
+    .post-content {
+        font-size: 1rem;
+    }
+
+    /* Код в статьях: чтобы не вылезал за экран */
+    .post-content pre {
+        padding: 10px;
+        font-size: 0.85rem;
+    }
+
+    /* Карточки в Writeups: в одну колонку */
+    .card-container {
+        grid-template-columns: 1fr;
+    }
+
+    /* Эффект глитча на телефоне: уменьшаем шрифт */
+    .glitch {
+        font-size: 1.8rem;
+    }
+}
