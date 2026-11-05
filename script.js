@@ -1,5 +1,5 @@
 // Эффект печатной машинки
-const text = "> Initializing system...\n> Loading modules: Web, Pwn, Crypto, Rev...\n> Access Granted.\n> Welcome to Drang3's Cyber Range.\n> Select a section above to begin.";
+const text = "> Initializing system...\n> Loading modules: Web, Pwn, Crypto, Rev...\n> Access Granted.\n> Welcome to Dr@ng3's Cyber Range.\n> Select a section above to begin.";
 const typewriterElement = document.getElementById('typewriter');
 let i = 0;
 
