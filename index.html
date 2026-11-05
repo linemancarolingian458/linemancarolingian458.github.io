@@ -3,34 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr@ng3 // Cyber Range</title>
+    <title>Drang3 // Cyber Range</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="terminal">
-        <div class="terminal-header">
-            <span class="dot red"></span>
-            <span class="dot yellow"></span>
-            <span class="dot green"></span>
-            <span class="title">root@drange:~#</span>
-        </div>
-        <div class="terminal-body">
-            <p class="line">> whoami</p>
-            <p class="output">Dr@ng3 - Pentester, CTF Player.</p>
-            
-            <p class="line">> ls -la /writeups</p>
-            <p class="output">
-                <a href="wgel.html" class="file">drwxr-xr-x  Wgel_CTF.md</a><br>
+    <!-- Фон с эффектом Матрицы -->
+    <canvas id="matrix"></canvas>
+
+    <div class="container">
+        <header>
+            <div class="logo">>_ DRANG3</div>
+            <nav>
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#writeups" class="nav-link">Writeups</a>
+                <a href="#about" class="nav-link">About</a>
+            </nav>
+        </header>
+
+        <main id="home">
+            <div class="terminal">
+                <div class="term-header">
+                    <span>root@drang3:~#</span>
+                </div>
+                <div class="term-body" id="typewriter">
+                    <!-- Сюда печатается текст через JS -->
+                </div>
+            </div>
+        </main>
+
+        <section id="writeups" class="hidden">
+            <h2 class="glitch" data-text="CTF WRITEUPS">CTF WRITEUPS</h2>
+            <div class="card-container">
+                <!-- Карточка поста -->
+                <div class="card">
+                    <h3>Wgel CTF - TryHackMe</h3>
+                    <p class="tags">#web #linux #privesc</p>
+                    <p>Комната на TryHackMe. Эксфильтрация рут-флага через Wget.</p>
+                    <a href="wgel.html" class="btn">Читать ></a>
+                </div>
+                <!-- Можно добавить еще карточки -->
+            </div>
+        </section>
+
+        <section id="about" class="hidden">
+            <h2 class="glitch" data-text="ABOUT ME">ABOUT ME</h2>
+            <p class="about-text">
+                Pentester. CTF Player. 
+                <br>Russia.
+                <br>
+                <a href="https://github.com/Drang3">GitHub</a> | 
+                <a href="mailto:drangexrr@gmail.com">Email</a>
             </p>
-            
-            <p class="line">> ./connect.sh</p>
-            <p class="output">
-                [ GitHub: <a href="https://github.com/Drang3" target="_blank">@Drang3</a> ]<br>
-                [ Email: <a href="mailto:drangexrr@gmail.com">drangexrr@gmail.com</a> ]
-            </p>
-            
-            <p class="line">> <span class="cursor">_</span></p>
-        </div>
+        </section>
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
