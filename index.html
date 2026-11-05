@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Теги анти-кеша -->
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Drang3 // Cyber Range</title>
+    
+    <title>Dr@ng3 // Cyber Range</title>
     <link rel="stylesheet" href="style.css">
-    <img src="avatar.jpg" alt="Dr@ng3" class="avatar">
 </head>
 <body>
     <!-- Фон с эффектом Матрицы -->
@@ -27,7 +28,7 @@
         <main id="home">
             <div class="terminal">
                 <div class="term-header">
-                    <span>root@drange:~#</span>
+                    <span>root@drang3:~#</span>
                 </div>
                 <div class="term-body" id="typewriter">
                     <!-- Сюда печатается текст через JS -->
@@ -51,13 +52,22 @@
 
         <section id="about" class="hidden">
             <h2 class="glitch" data-text="ABOUT ME">ABOUT ME</h2>
-            <p class="about-text">
-                Pentester. CTF Player. 
-                <br>Russia.
-                <br>
-                <a href="https://github.com/Drang3">GitHub</a> | 
-                <a href="mailto:drangexrr@gmail.com">Email</a>
-            </p>
+            <div class="about-container">
+                <!-- Аватарка -->
+                <img src="avatar.jpg" alt="Dr@ng3" class="avatar">
+                
+                <div class="about-text">
+                    <p><strong>Привет, я Dr@ng3.</strong></p>
+                    <p>Пентестер, CTF-игрок. Живу в России. Ломаю тачки на TryHackMe и HackTheBox.</p>
+                    <p>Моя цель — попасть на HKCERT и стать частью мирового киберсообщества.</p>
+                    <div class="socials">
+                        <a href="https://github.com/Drang3" target="_blank">GitHub</a>
+                        <a href="mailto:drangexrr@gmail.com">Email</a>
+                        <!-- Если есть телега, раскомментируй и вставь ссылку: -->
+                        <!-- <a href="https://t.me/ТВОЙ_ТЕЛЕГРАМ" target="_blank">Telegram</a> -->
+                    </div>
+                </div>
+            </div>
         </section>
     </div>
 
