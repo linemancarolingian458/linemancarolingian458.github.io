@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap');
 
+:root {
+    --bg-color: #050505;
+    --text-color: #00ffcc;
+    --accent-color: #ff00ff;
+    --font-main: 'Fira Code', monospace;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -7,72 +14,126 @@
 }
 
 body {
-    background-color: #0a0a0a;
-    color: #00ffcc; /* Неоновый бирюзовый */
-    font-family: 'Fira Code', monospace;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    overflow: hidden;
-    text-shadow: 0 0 5px rgba(0, 255, 204, 0.5);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-main);
+    overflow-x: hidden;
 }
 
-.terminal {
-    width: 80%;
-    max-width: 900px;
-    background-color: #111;
-    border: 1px solid #333;
-    border-radius: 8px;
-    box-shadow: 0 0 20px rgba(0, 255, 204, 0.2);
-    overflow: hidden;
+/* Фон Матрицы */
+#matrix {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.15;
 }
 
-.terminal-header {
-    background-color: #1a1a1a;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid #333;
-}
-
-.dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    margin-right: 8px;
-}
-
-.red { background-color: #ff5f56; }
-.yellow { background-color: #ffbd2e; }
-.green { background-color: #27c93f; }
-
-.title {
-    margin-left: auto;
-    color: #888;
-    font-size: 0.9em;
-}
-
-.terminal-body {
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
     padding: 20px;
-    font-size: 1.1em;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(0, 255, 204, 0.3);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-shadow: 0 0 10px var(--text-color);
+}
+
+nav a {
+    color: #888;
+    text-decoration: none;
+    margin-left: 20px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: var(--text-color);
+    text-shadow: 0 0 5px var(--text-color);
+}
+
+/* Терминал */
+.terminal {
+    margin-top: 50px;
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid var(--text-color);
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(0, 255, 204, 0.2);
+    min-height: 300px;
+}
+
+.term-header {
+    background: #111;
+    padding: 10px;
+    border-bottom: 1px solid var(--text-color);
+    font-size: 0.9rem;
+    color: #888;
+}
+
+.term-body {
+    padding: 20px;
     line-height: 1.6;
+    white-space: pre-wrap;
 }
 
-.line { margin-bottom: 10px; font-weight: bold; }
-.output { margin-bottom: 20px; color: #eee; text-shadow: none; }
-.file { color: #00ffcc; text-decoration: none; border-bottom: 1px dashed #00ffcc; }
-.file:hover { color: #fff; background-color: #00ffcc; }
-
-a { color: #fff; text-decoration: underline; }
-a:hover { color: #00ffcc; }
-
-/* Мигающий курсор */
-.cursor {
-    animation: blink 1s step-end infinite;
+/* Скрытие секций */
+.hidden {
+    display: none !important;
 }
 
-@keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
+/* Карточки Writeup */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.card {
+    background: #0a0a0a;
+    border: 1px solid #333;
+    padding: 20px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    border-color: var(--text-color);
+    box-shadow: 0 0 15px rgba(0, 255, 204, 0.3);
+}
+
+.card h3 {
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.tags {
+    color: var(--accent-color);
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 5px 15px;
+    border: 1px solid var(--text-color);
+    color: var(--text-color);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: var(--text-color);
+    color: #000;
 }
