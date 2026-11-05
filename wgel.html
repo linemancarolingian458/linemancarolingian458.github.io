@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wgel CTF | Dr@ng3</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Дополнительные стили для контента */
+        .post-content { margin-top: 30px; line-height: 1.8; }
+        .post-content h1, .post-content h2, .post-content h3 { color: #fff; margin-top: 20px; }
+        .post-content p { margin-bottom: 15px; }
+        .post-content code { background: #111; padding: 2px 5px; border-radius: 3px; color: #ff00ff; }
+        .post-content pre { background: #111; padding: 15px; overflow-x: auto; border-left: 3px solid #00ffcc; margin-bottom: 20px; }
+        .post-content img { max-width: 100%; border: 1px solid #333; margin: 10px 0; }
+        .back-btn { display: inline-block; margin-bottom: 20px; color: #888; text-decoration: none; }
+        .back-btn:hover { color: #00ffcc; }
+    </style>
+</head>
+<body>
+    <canvas id="matrix"></canvas>
+    <div class="container">
+        <header>
+            <div class="logo">>_ Dr@ng3</div>
+            <nav>
+                <a href="index.html" class="nav-link">Home</a>
+            </nav>
+        </header>
+
+        <main class="post-content">
+            <a href="index.html" class="back-btn">< Назад к терминалу</a>
+            
+            <h1 class="glitch" data-text="Wgel CTF">Wgel CTF</h1>
+            <p style="color: #ff00ff;">TryHackMe | #web #linux #privesc</p>
+            
+            <hr style="border-color: #333; margin: 20px 0;">
+
+            <h2>1. Разведка</h2>
+            <p>Сканируем порты с помощью Nmap...</p>
+            <pre><code>nmap -sC -sV -Pn -p 22,80 10.113.135.112</code></pre>
+            <p>Находим открытые порты 22 (SSH) и 80 (HTTP).</p>
+
+            <h2>2. Поиск директорий</h2>
+            <p>Используем Gobuster для поиска скрытых папок:</p>
+            <pre><code>gobuster dir -u http://10.113.135.112 -w /usr/share/wordlists/dirb/common.txt</code></pre>
+            <p>Находим папку <code>/sitemap/</code>, а в ней скрытую <code>/.ssh</code>.</p>
+
+            <!-- ДОБАВЬ СЮДА ОСТАЛЬНОЙ ТЕКСТ WRITEUP'А -->
+            
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
